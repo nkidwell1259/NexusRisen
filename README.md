@@ -2,6 +2,19 @@
 
 Run the Resources in correct order in order to work properly
 
+# Main FiveM Resources
+```
+start mapmanager
+start chat
+start spawnmanager
+start sessionmanager
+start fivem
+start hardcap
+start rconlog
+start scoreboard
+start playernames
+```
+
 # Main Mysql Resources
 ```
 start mysql-async <br/>
