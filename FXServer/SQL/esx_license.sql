@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 CREATE TABLE `licenses` (
 	`type` varchar(60) NOT NULL,
 	`label` varchar(60) NOT NULL,

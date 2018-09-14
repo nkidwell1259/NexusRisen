@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 CREATE TABLE `shops` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`store` varchar(100) NOT NULL,

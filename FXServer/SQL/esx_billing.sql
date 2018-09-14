@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 CREATE TABLE `billing` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`identifier` varchar(255) NOT NULL,

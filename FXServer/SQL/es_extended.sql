@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 ALTER TABLE `users`
 	ADD COLUMN `name` VARCHAR(255) NULL DEFAULT '' AFTER `money`,
 	ADD COLUMN `skin` LONGTEXT NULL AFTER `name`,
