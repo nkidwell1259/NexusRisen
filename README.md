@@ -17,7 +17,7 @@ start playernames
 
 # Main Mysql Resources
 ```
-start mysql-async <br/>
+start mysql-async
 start async
 ```
 # Main EssentialMode Resources
@@ -74,6 +74,7 @@ start esx_thief
 start esx_blackmoney
 start esx-carrental
 start esx_realweapons
+start esx_hunting
 ```
 # EssentialMode Jobs
 ```
