@@ -78,6 +78,13 @@ start esx_hunting
 ```
 # EssentialMode Jobs
 ```
+start esx_jobs
+start esx_gopostal
+start esx_mafia
+start esx_ranger
+start esx_rebel
+start esx_traffic
+start esx_truckerjob
 start esx_vigneronjob
 ```
 # Map Resources
