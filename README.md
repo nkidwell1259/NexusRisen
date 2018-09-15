@@ -112,6 +112,7 @@ start realaitraffic
 start slashtires
 start arrestanims
 start tase
+start indicators 
 ```
 
 # MYSQL EXECUTION CODE
