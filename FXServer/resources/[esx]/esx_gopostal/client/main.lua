@@ -1,10 +1,17 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- ORIGINAL SCRIPT BY Marcio FOR CFX-ESX
--- Script serveur No Brain 
+-- Script serveur No Brain
 -- www.nobrain.org
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+-----------------MODIFIED BY  K R I Z F R O S T---------------------------
+--------------------------------------------------------------------------
+----- MONEY LAUNDERING SCRIPT RELEASED CREDITS TO ORIGINAL CREATOR--------
+----- OF ESX_POSTALJOB RE WORKED AND MODIFIED BY KRIZFROST ---------------
+--------------------------------------------------------------------------
 ESX = nil
 
 Citizen.CreateThread(function()
@@ -38,6 +45,7 @@ local Blips                   = {}
 local plaquevehicule = ""
 local plaquevehiculeactuel = ""
 local CurrentAction           = nil
+local price = 500
 local CurrentActionMsg        = ''
 local CurrentActionData       = {}
 --------------------------------------------------------------------------------
@@ -89,26 +97,26 @@ function MenuCloakRoom()
 					  TriggerEvent('esx:restoreLoadout')
         end)
       end
+
 			if data.current.value == 'job_wear' then
 				isInService = true
 				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-
 					if skin.sex == 0 or 1 then
-					local model = GetHashKey("s_m_m_postal_01")
+					SetModelAsNoLongerNeeded(model) -- Uses Current Player Model
 
 					RequestModel(model)
 					while not HasModelLoaded(model) do
 					RequestModel(model)
 					Citizen.Wait(0)
 					end
-
+				xPlayer.removeAccountMoney('black_money', price)
 				SetPlayerModel(PlayerId(), model)
-				SetModelAsNoLongerNeeded(model)
+			else
 					end
-					
+
 				end)
 
-			end	
+			end
 			menu.close()
 		end,
 		function(data, menu)
@@ -136,15 +144,17 @@ function MenuVehicleSpawner()
 		function(data, menu)
 			ESX.Game.SpawnVehicle(data.current.value, Config.Zones.VehicleSpawnPoint.Pos, 270.0, function(vehicle)
 				platenum = math.random(10000, 99999)
-				SetVehicleNumberPlateText(vehicle, "WAL"..platenum)             
+				SetVehicleNumberPlateText(vehicle, "WAL"..platenum)
                 MissionLivraisonSelect()
 				plaquevehicule = "WAL"..platenum
+				xPlayer.removeAccountMoney('black_money', '500') -- Cost $500 Dirty Money
+
 				if data.current.value == 'phantom3' then
 					ESX.Game.SpawnVehicle("trailers2", Config.Zones.VehicleSpawnPoint.Pos, 270.0, function(trailer)
 					    AttachVehicleToTrailer(vehicle, trailer, 1.1)
 					end)
-				end				
-				TaskWarpPedIntoVehicle(GetPlayerPed(-1), vehicle, -1)   
+				end
+				TaskWarpPedIntoVehicle(GetPlayerPed(-1), vehicle, -1)
 			end)
 
 			menu.close()
@@ -170,14 +180,15 @@ end
 function IsJobTrucker()
 	if PlayerData ~= nil then
 		local isJobTrucker = false
-		if PlayerData.job.name ~= nil and PlayerData.job.name == 'gopostal' then
+
+		if PlayerData.job.name ~= nil or PlayerData.job.name ~= 'police' then -- If players job ~= nil and Player Job name = 'JOB YOU WANT THEM TO HAVE ' then
 			isJobTrucker = true
 		end
 		return isJobTrucker
 	end
 end
 
-AddEventHandler('esx_gopostaljob:hasEnteredMarker', function(zone)
+AddEventHandler('esx_godirtyjob:hasEnteredMarker', function(zone)
 
 	local playerPed = GetPlayerPed(-1)
 
@@ -200,7 +211,7 @@ AddEventHandler('esx_gopostaljob:hasEnteredMarker', function(zone)
 		if isInService and MissionLivraison and MissionNum == namezonenum and MissionRegion == namezoneregion and IsJobTrucker() then
 			if IsPedSittingInAnyVehicle(playerPed) and IsATruck() then
 				VerifPlaqueVehiculeActuel()
-				
+
 				if plaquevehicule == plaquevehiculeactuel then
 					if Blips['delivery'] ~= nil then
 						RemoveBlip(Blips['delivery'])
@@ -226,7 +237,7 @@ AddEventHandler('esx_gopostaljob:hasEnteredMarker', function(zone)
 				VerifPlaqueVehiculeActuel()
 
                 TriggerServerEvent('esx:clientLog', "3'" .. json.encode(plaquevehicule) .. "' '" .. json.encode(plaquevehiculeactuel) .. "'")
-				
+
 				if plaquevehicule == plaquevehiculeactuel then
                     CurrentAction     = 'retourcamionannulermission'
                     CurrentActionMsg  = _U('cancel_mission')
@@ -247,6 +258,7 @@ AddEventHandler('esx_gopostaljob:hasEnteredMarker', function(zone)
 
 				if plaquevehicule == plaquevehiculeactuel then
                     CurrentAction     = 'retourcamion'
+                    CurrentActionMsg  = _U('return_finished')
 				else
                     CurrentAction     = 'retourcamionannulermission'
                     CurrentActionMsg  = _U('not_your_truck')
@@ -259,8 +271,8 @@ AddEventHandler('esx_gopostaljob:hasEnteredMarker', function(zone)
 
 end)
 
-AddEventHandler('esx_gopostaljob:hasExitedMarker', function(zone)
-	ESX.UI.Menu.CloseAll()    
+AddEventHandler('esx_godirtyjob:hasExitedMarker', function(zone)
+	ESX.UI.Menu.CloseAll()
     CurrentAction = nil
     CurrentActionMsg = ''
 end)
@@ -274,7 +286,7 @@ function nouvelledestination()
 	else
 
 		livraisonsuite = math.random(0, 100)
-		
+
 		if livraisonsuite <= 10 then
 			MissionLivraisonStopRetourDepot()
 		elseif livraisonsuite <= 99 then
@@ -285,7 +297,7 @@ function nouvelledestination()
 			elseif MissionRegion == 2 then
 				MissionRegion = 1
 			end
-			MissionLivraisonSelect()	
+			MissionLivraisonSelect()
 		end
 	end
 end
@@ -295,25 +307,28 @@ function retourcamion_oui()
 		RemoveBlip(Blips['delivery'])
 		Blips['delivery'] = nil
 	end
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
-	
+
 	MissionRetourCamion = false
 	livraisonnombre = 0
 	MissionRegion = 0
-	
+	TriggerServerEvent("esx_godirtyjob:pay", amount)
+	print('retourcamion_oui <<< Has been Triggered')
 	donnerlapaye()
 end
 
 function retourcamion_non()
-	
+
 	if livraisonnombre >= Config.MaxDelivery then
 		ESX.ShowNotification(_U('need_it'))
 	else
 		ESX.ShowNotification(_U('ok_work'))
+		TriggerServerEvent("esx_godirtyjob:pay", amount)
+		print('retourcamion_non <<< Has been Triggered')
 		nouvelledestination()
 	end
 end
@@ -323,15 +338,17 @@ function retourcamionperdu_oui()
 		RemoveBlip(Blips['delivery'])
 		Blips['delivery'] = nil
 	end
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
+	TriggerServerEvent("esx_godirtyjob:pay", amount)
+	print('retourcamionperdu_oui <<< Has been Triggered')
 	MissionRetourCamion = false
 	livraisonnombre = 0
 	MissionRegion = 0
-	
+
 	donnerlapayesanscamion()
 end
 
@@ -344,20 +361,21 @@ function retourcamionannulermission_oui()
 		RemoveBlip(Blips['delivery'])
 		Blips['delivery'] = nil
 	end
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
-	
+
 	MissionLivraison = false
 	livraisonnombre = 0
 	MissionRegion = 0
-	
+	TriggerServerEvent("esx_godirtyjob:pay", amount)
+	print('retourcamionperdu_non <<< Has been Triggered')
 	donnerlapaye()
 end
 
-function retourcamionannulermission_non()	
+function retourcamionannulermission_non()
 	ESX.ShowNotification(_U('resume_delivery'))
 end
 
@@ -366,20 +384,21 @@ function retourcamionperduannulermission_oui()
 		RemoveBlip(Blips['delivery'])
 		Blips['delivery'] = nil
 	end
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
-	
+
 	MissionLivraison = false
 	livraisonnombre = 0
 	MissionRegion = 0
-	
+	TriggerServerEvent("esx_godirtyjob:pay", amount)
+	print('retourcamionperduannulermission_oui <<< Has been Triggered')
 	donnerlapayesanscamion()
 end
 
-function retourcamionperduannulermission_non()	
+function retourcamionperduannulermission_non()
 	ESX.ShowNotification(_U('resume_delivery'))
 end
 
@@ -393,7 +412,7 @@ function donnerlapaye()
 	vehicle = GetVehiclePedIsIn(ped, false)
 	vievehicule = GetVehicleEngineHealth(vehicle)
 	calculargentretire = round(viemaxvehicule-vievehicule)
-	
+
 	if calculargentretire <= 0 then
 		argentretire = 0
 	else
@@ -403,23 +422,21 @@ function donnerlapaye()
     ESX.Game.DeleteVehicle(vehicle)
 
 	local amount = livraisonTotalPaye-argentretire
-	
+
 	if vievehicule >= 1 then
 		if livraisonTotalPaye == 0 then
 			ESX.ShowNotification(_U('not_delivery'))
 			ESX.ShowNotification(_U('pay_repair'))
 			ESX.ShowNotification(_U('repair_minus')..argentretire)
-			TriggerServerEvent("esx_gopostaljob:pay", amount)
+			TriggerServerEvent("esx_godirtyjob:pay", amount)
 			livraisonTotalPaye = 0
 		else
 			if argentretire <= 0 then
-				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
-				TriggerServerEvent("esx_gopostaljob:pay", amount)
+				TriggerServerEvent("esx_godirtyjob:pay", amount)
 				livraisonTotalPaye = 0
 			else
-				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 				ESX.ShowNotification(_U('repair_minus')..argentretire)
-					TriggerServerEvent("esx_gopostaljob:pay", amount)
+					TriggerServerEvent("esx_godirtyjob:pay", amount)
 				livraisonTotalPaye = 0
 			end
 		end
@@ -429,13 +446,11 @@ function donnerlapaye()
 			livraisonTotalPaye = 0
 		else
 			if argentretire <= 0 then
-				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
-					TriggerServerEvent("esx_gopostaljob:pay", amount)
+					TriggerServerEvent("esx_godirtyjob:pay", amount)
 				livraisonTotalPaye = 0
 			else
-				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 				ESX.ShowNotification(_U('repair_minus')..argentretire)
-				TriggerServerEvent("esx_gopostaljob:pay", amount)
+				TriggerServerEvent("esx_godirtyjob:pay", amount)
 				livraisonTotalPaye = 0
 			end
 		end
@@ -445,20 +460,19 @@ end
 function donnerlapayesanscamion()
 	ped = GetPlayerPed(-1)
 	argentretire = Config.TruckPrice
-	
+
 	-- donne paye
 	local amount = livraisonTotalPaye-argentretire
-	
+
 	if livraisonTotalPaye == 0 then
 		ESX.ShowNotification(_U('no_delivery_no_truck'))
 		ESX.ShowNotification(_U('truck_price')..argentretire)
-					TriggerServerEvent("esx_gopostaljob:pay", amount)
+					TriggerServerEvent("esx_godirtyjob:pay", amount)
 		livraisonTotalPaye = 0
 	else
 		if amount >= 1 then
-			ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 			ESX.ShowNotification(_U('truck_price')..argentretire)
-					TriggerServerEvent("esx_gopostaljob:pay", amount)
+					TriggerServerEvent("esx_godirtyjob:pay", amount)
 			livraisonTotalPaye = 0
 		else
 			ESX.ShowNotification(_U('truck_state'))
@@ -480,10 +494,17 @@ Citizen.CreateThread(function()
        		DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
             if IsControlJustReleased(0, 38) and IsJobTrucker() then
-
                 if CurrentAction == 'delivery' then
+								---	local money = xPlayer.getAccount('black_money').money
+								---		if money > amount or money == amount then
                     nouvelledestination()
-                end
+								--		Player.addMoney(tonumber(amount))
+								---	elseif  money < amount or money == money then
+								--		Player.addMoney(tonumber(money))
+								--		retourcamionannulermission_oui()
+								--	end
+							--	end 
+              end
 
                 if CurrentAction == 'retourcamion' then
                     retourcamion_oui()
@@ -513,7 +534,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Wait(0)
-		
+
 		if MissionLivraison then
 			DrawMarker(destination.Type, destination.Pos.x, destination.Pos.y, destination.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, destination.Size.x, destination.Size.y, destination.Size.z, destination.Color.r, destination.Color.g, destination.Color.b, 100, false, true, 2, false, false, false, false)
 			DrawMarker(Config.Livraison.AnnulerMission.Type, Config.Livraison.AnnulerMission.Pos.x, Config.Livraison.AnnulerMission.Pos.y, Config.Livraison.AnnulerMission.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Livraison.AnnulerMission.Size.x, Config.Livraison.AnnulerMission.Size.y, Config.Livraison.AnnulerMission.Size.z, Config.Livraison.AnnulerMission.Color.r, Config.Livraison.AnnulerMission.Color.g, Config.Livraison.AnnulerMission.Color.b, 100, false, true, 2, false, false, false, false)
@@ -522,7 +543,7 @@ Citizen.CreateThread(function()
 		end
 
 		local coords = GetEntityCoords(GetPlayerPed(-1))
-		
+
 		for k,v in pairs(Config.Zones) do
 
 			if isInService and (IsJobTrucker() and v.Type ~= -1 and GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance) then
@@ -538,16 +559,16 @@ Citizen.CreateThread(function()
 			end
 
 		end
-		
+
 	end
 end)
 
 -- Activate menu when player is inside marker
 Citizen.CreateThread(function()
 	while true do
-		
+
 		Wait(0)
-		
+
 		if IsJobTrucker() then
 
 			local coords      = GetEntityCoords(GetPlayerPed(-1))
@@ -560,14 +581,14 @@ Citizen.CreateThread(function()
 					currentZone = k
 				end
 			end
-			
+
 			for k,v in pairs(Config.Cloakroom) do
 				if(GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
 					isInMarker  = true
 					currentZone = k
 				end
 			end
-			
+
 			for k,v in pairs(Config.Livraison) do
 				if(GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
 					isInMarker  = true
@@ -578,12 +599,12 @@ Citizen.CreateThread(function()
 			if isInMarker and not hasAlreadyEnteredMarker then
 				hasAlreadyEnteredMarker = true
 				lastZone                = currentZone
-				TriggerEvent('esx_gopostaljob:hasEnteredMarker', currentZone)
+				TriggerEvent('esx_godirtyjob:hasEnteredMarker', currentZone)
 			end
 
 			if not isInMarker and hasAlreadyEnteredMarker then
 				hasAlreadyEnteredMarker = false
-				TriggerEvent('esx_gopostaljob:hasExitedMarker', lastZone)
+				TriggerEvent('esx_godirtyjob:hasExitedMarker', lastZone)
 			end
 
 		end
@@ -594,15 +615,15 @@ end)
 -- CREATE BLIPS
 Citizen.CreateThread(function()
 	local blip = AddBlipForCoord(Config.Cloakroom.CloakRoom.Pos.x, Config.Cloakroom.CloakRoom.Pos.y, Config.Cloakroom.CloakRoom.Pos.z)
-  
-	SetBlipSprite (blip, 357)
+
+	SetBlipSprite (blip, 351)
 	SetBlipDisplay(blip, 4)
 	SetBlipScale  (blip, 1.2)
-	SetBlipColour (blip, 5)
+	SetBlipColour (blip, 49)
 	SetBlipAsShortRange(blip, true)
 
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString(_U('blip_job'))
+	AddTextComponentString(_U('Money_Laundering'))
 	EndTextCommandSetBlipName(blip)
 end)
 
@@ -611,18 +632,23 @@ end)
 -------------------------------------------------
 -- Fonction selection nouvelle mission livraison
 function MissionLivraisonSelect()
+	local amount = livraisonTotalPaye-argentretire
     TriggerServerEvent('esx:clientLog', "MissionLivraisonSelect num")
     TriggerServerEvent('esx:clientLog', MissionRegion)
 	if MissionRegion == 0 then
 
             TriggerServerEvent('esx:clientLog', "MissionLivraisonSelect 1")
+     TriggerServerEvent("esx_godirtyjob:pay", amount)
+	print('Payout Started')
 		MissionRegion = math.random(1,2)
 	end
-	
+
 	if MissionRegion == 1 then -- Los santos
             TriggerServerEvent('esx:clientLog', "MissionLivraisonSelect 2")
+                 TriggerServerEvent("esx_godirtyjob:pay", amount)
+            print('Payout Started')
 		MissionNum = math.random(1, 10)
-	
+
 		if MissionNum == 1 then destination = Config.Livraison.Delivery1LS namezone = "Delivery1LS" namezonenum = 1 namezoneregion = 1
 		elseif MissionNum == 2 then destination = Config.Livraison.Delivery2LS namezone = "Delivery2LS" namezonenum = 2 namezoneregion = 1
 		elseif MissionNum == 3 then destination = Config.Livraison.Delivery3LS namezone = "Delivery3LS" namezonenum = 3 namezoneregion = 1
@@ -634,12 +660,14 @@ function MissionLivraisonSelect()
 		elseif MissionNum == 9 then destination = Config.Livraison.Delivery9LS namezone = "Delivery9LS" namezonenum = 9 namezoneregion = 1
 		elseif MissionNum == 10 then destination = Config.Livraison.Delivery10LS namezone = "Delivery10LS" namezonenum = 10 namezoneregion = 1
 		end
-		
+
 	elseif MissionRegion == 2 then -- Blaine County
 
             TriggerServerEvent('esx:clientLog', "MissionLivraisonSelect 3")
+            TriggerServerEvent("esx_godirtyjob:pay", amount)
+            print('Payout Started')
 		MissionNum = math.random(1, 10)
-	
+
 		if MissionNum == 1 then destination = Config.Livraison.Delivery1BC namezone = "Delivery1BC" namezonenum = 1 namezoneregion = 2
 		elseif MissionNum == 2 then destination = Config.Livraison.Delivery2BC namezone = "Delivery2BC" namezonenum = 2 namezoneregion = 2
 		elseif MissionNum == 3 then destination = Config.Livraison.Delivery3BC namezone = "Delivery3BC" namezonenum = 3 namezoneregion = 2
@@ -651,9 +679,9 @@ function MissionLivraisonSelect()
 		elseif MissionNum == 9 then destination = Config.Livraison.Delivery9BC namezone = "Delivery9BC" namezonenum = 9 namezoneregion = 2
 		elseif MissionNum == 10 then destination = Config.Livraison.Delivery10BC namezone = "Delivery10BC" namezonenum = 10 namezoneregion = 2
 		end
-		
+
 	end
-	
+
 	MissionLivraisonLetsGo()
 end
 
@@ -663,18 +691,18 @@ function MissionLivraisonLetsGo()
 		RemoveBlip(Blips['delivery'])
 		Blips['delivery'] = nil
 	end
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
-	
+
 	Blips['delivery'] = AddBlipForCoord(destination.Pos.x,  destination.Pos.y,  destination.Pos.z)
 	SetBlipRoute(Blips['delivery'], true)
 	BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString(_U('blip_delivery'))
 	EndTextCommandSetBlipName(Blips['delivery'])
-	
+
 	Blips['annulermission'] = AddBlipForCoord(Config.Livraison.AnnulerMission.Pos.x,  Config.Livraison.AnnulerMission.Pos.y,  Config.Livraison.AnnulerMission.Pos.z)
 	BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString(_U('blip_goal'))
@@ -694,20 +722,20 @@ end
 --Fonction retour au depot
 function MissionLivraisonStopRetourDepot()
 	destination = Config.Livraison.RetourCamion
-	
+
 	Blips['delivery'] = AddBlipForCoord(destination.Pos.x,  destination.Pos.y,  destination.Pos.z)
 	SetBlipRoute(Blips['delivery'], true)
 	BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString(_U('blip_depot'))
 	EndTextCommandSetBlipName(Blips['delivery'])
-	
+
 	if Blips['annulermission'] ~= nil then
 		RemoveBlip(Blips['annulermission'])
 		Blips['annulermission'] = nil
 	end
 
 	ESX.ShowNotification(_U('return_depot'))
-	
+
 	MissionRegion = 0
 	MissionLivraison = false
 	MissionNum = 0

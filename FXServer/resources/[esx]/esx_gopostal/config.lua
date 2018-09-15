@@ -1,33 +1,33 @@
 Config              = {}
 Config.DrawDistance = 100.0
-Config.MaxDelivery	= 10
-Config.TruckPrice	= 300
+Config.MaxDelivery	= 5
+Config.TruckPrice	= 500
 Config.Locale       = 'en'
 
 Config.Trucks = {
 	"burrito3",
-	"enduro"	
+	"boxville"	
 }
 
 Config.Cloakroom = {
 	CloakRoom = {
-			Pos   = {x = 78.899, y = 111.934, z = 80.1},
+			Pos   = {x = 927.02703857422, y = 44.957557678223, z = 80.899871826172},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1
+			Type  = 27
 		},
 }
 
 Config.Zones = {
 	VehicleSpawner = {
-			Pos   = {x = 69.0792, y = 125.886, z = 78.1},
+			Pos   = {x = 917.31268310547, y = 47.44896697998, z = 80.764739990234},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1
+			Type  = 27
 		},
 
 	VehicleSpawnPoint = {
-			Pos   = {x = 59.30062, y = 99.9231, z = 78.9},
+			Pos   = {x = 913.56811523438, y = 53.724765777588, z = 80.764801025391},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Type  = -1
 		},
@@ -41,8 +41,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 375
+			Type  = 27,
+			Paye = 2500
 		},
 	-- a coté des flic
 	Delivery2LS = {
@@ -50,8 +50,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 400
+			Type  = 27,
+			Paye = 3500
 		},
 	-- vers la plage
 	Delivery3LS = {
@@ -59,8 +59,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 500
+			Type  = 27,
+			Paye = 3500
 		},
 	-- studio 1
 	Delivery4LS = {
@@ -68,8 +68,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 600
+			Type  = 27,
+			Paye = 3500
 		},
 	-- popular street et el rancho boulevard
 	Delivery5LS = {
@@ -77,8 +77,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 700
+			Type  = 27,
+			Paye = 3500
 		},
 	--Alta street et las lagunas boulevard
 	Delivery6LS = {
@@ -86,8 +86,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 350
+			Type  = 27,
+			Paye = 3500
 		},
 	--Rockford Drive Noth et boulevard del perro
 	Delivery7LS = {
@@ -95,8 +95,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 400
+			Type  = 27,
+			Paye = 3500
 		},
 	--Rockford Drive Noth et boulevard del perro
 	Delivery8LS = {
@@ -104,8 +104,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 500
+			Type  = 27,
+			Paye = 3500
 		},
 	--New empire way (airport)
 	Delivery9LS = {
@@ -113,8 +113,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 600
+			Type  = 27,
+			Paye = 3500
 		},
 	--Rockford drive south
 	Delivery10LS = {
@@ -122,8 +122,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 700
+			Type  = 27,
+			Paye = 3500
 		},
 ------------------------------------------- Blaine County
 	-- panorama drive
@@ -132,8 +132,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 600
+			Type  = 27,
+			Paye = 3500
 		},
 	-- route 68
 	Delivery2BC = {
@@ -141,8 +141,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 700
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Algonquin boulevard et cholla springs avenue
 	Delivery3BC = {
@@ -150,8 +150,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 800
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Joshua road
 	Delivery4BC = {
@@ -159,8 +159,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 900
+			Type  = 27,
+			Paye = 3500
 		},
 	-- East joshua road
 	Delivery5BC = {
@@ -168,8 +168,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 900
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Seaview road
 	Delivery6BC = {
@@ -177,8 +177,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 600
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Paleto boulevard
 	Delivery7BC = {
@@ -186,8 +186,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 700
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Paleto boulevard et Procopio drive
 	Delivery8BC = {
@@ -195,8 +195,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 800
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Marina drive et joshua road
 	Delivery9BC = {
@@ -204,8 +204,8 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 900
+			Type  = 27,
+			Paye = 3500
 		},
 	-- Pyrite Avenue
 	Delivery10BC = {
@@ -213,25 +213,31 @@ Config.Livraison = {
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 900
+			Type  = 27,
+			Paye = 3500
 		},
 	
 	RetourCamion = {
-			Pos   = {x = 54.4964, y = 118.4247, z = 78.0},
+			Pos   = {x = 917.99530029297, y = 62.024486541748, z = 80.764793395996},
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 0
+			Type  = 27,
+			Paye = 3500
 		},
 	
 	AnnulerMission = {
-			Pos   = {x = 72.7394, y = 90.5667, z = 77.7},
+			Pos   = {x = 908.22473144531, y = 45.296188354492, z = 80.764785766602},
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
-			Type  = 1,
-			Paye = 0
+			Type  = 27,
+			Paye = 3500
 		},
 }
+--------------------------------------------------------------------------
+-----------------MODIFIED BY  K R I Z F R O S T---------------------------
+--------------------------------------------------------------------------
+----- MONEY LAUNDERING SCRIPT RELEASED CREDITS TO ORIGINAL CREATOR--------
+----- OF ESX_POSTALJOB RE WORKED AND MODIFIED BY KRIZFROST ---------------
+-------------------------------------------------------------------------- 

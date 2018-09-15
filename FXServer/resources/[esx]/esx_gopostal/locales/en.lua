@@ -1,6 +1,6 @@
 Locales['en'] = {
 	['cloakroom']				= 'cloakroom',
-	['job_wear']				= 'workwear',
+	['job_wear']				= 'Load Truck [need max $5000 Dirty Money]',
 	['citizen_wear']			= 'civilian clothes',
 	['vehiclespawner']			= 'choice of truck', 
 	['already_have_truck']		= 'we have allready provided a truck!', 
@@ -26,4 +26,15 @@ Locales['en'] = {
 	['blip_delivery']			= 'Post Office : Delivery',
 	['blip_goal']				= 'Post Office : Delivery point',
 	['blip_depot']				= 'Post Office : depot',
+	['cancel_mission']			= 'Press ~INPUT_PICKUP~	to ~r~Return~w~ Truck',
+	['not_delivery']			= '~r~You did not do any deliveries',
+	['Money_Laundering']		= 'Money Laundering',
+	['return_finished']			= 'Press ~INPUT_PICKUP~ to clock out & Collect ~g~Clean Money'
 }
+
+--------------------------------------------------------------------------
+------------------------------BY  K R I Z F R O S T-----------------------
+--------------------------------------------------------------------------
+----- MONEY LAUNDERING SCRIPT RELEASED CREDITS TO ORIGINAL CREATOR--------
+----- OF ESX_POSTALJOB RE WORKED AND MODIFIED BY KRIZFROST ---------------
+--------------------------------------------------------------------------
