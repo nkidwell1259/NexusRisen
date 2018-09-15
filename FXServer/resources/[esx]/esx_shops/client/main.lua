@@ -72,21 +72,18 @@ end)
 
 -- Create Blips
 Citizen.CreateThread(function()
-	
-	for i=1, #Config.Map, 1 do
-		
-		local blip = AddBlipForCoord(Config.Map[i].x, Config.Map[i].y, Config.Map[i].z)
-		SetBlipSprite (blip, Config.Map[i].id)
-		SetBlipScale  (blip, 1.2)
+	for k,v in pairs(Config.Zones) do
+  	for i = 1, #v.Pos, 1 do
+		local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
+		SetBlipSprite (blip, 52)
 		SetBlipDisplay(blip, 4)
-		SetBlipColour (blip, Config.Map[i].color)
+		SetBlipScale  (blip, 0.1)
+		SetBlipColour (blip, 2)
 		SetBlipAsShortRange(blip, true)
-
 		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString(Config.Map[i].name)
 		EndTextCommandSetBlipName(blip)
+		end
 	end
-
 end)
 
 -- Display markers

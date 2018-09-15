@@ -1,9 +1,15 @@
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `shops`
+--
+
 CREATE TABLE IF NOT EXISTS `shops` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `item` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `price` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `shops`
@@ -42,17 +48,15 @@ INSERT INTO `shops` (`id`, `name`, `item`, `price`) VALUES
 (30, 'TwentyFourSeven', 'redbull', 30),
 (31, 'RobsLiquor', 'redbull', 30),
 (32, 'LTDgasoline', 'redbull', 30),
-(33, 'TwentyFourSeven', 'milk', 35),
-(34, 'RobsLiquor', 'milk', 35),
-(35, 'LTDgasoline', 'milk', 35),
-(48, 'TwentyFourSeven', 'cigarett', 10),
-(49, 'RobsLiquor', 'cigarett', 10),
-(50, 'LTDgasoline', 'cigarett', 10),
-(51, 'TwentyFourSeven', 'lighter', 5),
-(52, 'RobsLiquor', 'lighter', 5),
-(53, 'LTDgasoline', 'lighter', 5),
-(54, 'Bar', 'cigarett', 15),
-(55, 'Bar', 'lighter', 10);
+(33, 'TwentyFourSeven', 'cigarett', 10),
+(34, 'RobsLiquor', 'cigarett', 10),
+(35, 'LTDgasoline', 'cigarett', 10),
+(36, 'TwentyFourSeven', 'lighter', 5),
+(37, 'RobsLiquor', 'lighter', 5),
+(38, 'LTDgasoline', 'lighter', 5),
+(39, 'Bar', 'cigarett', 15),
+(40, 'Bar', 'lighter', 10),
+;
 
 --
 -- Indexes for dumped tables
@@ -72,4 +76,4 @@ ALTER TABLE `shops`
 -- AUTO_INCREMENT for table `shops`
 --
 ALTER TABLE `shops`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
