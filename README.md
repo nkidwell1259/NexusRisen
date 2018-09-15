@@ -55,6 +55,7 @@ start esx_society
 start esx_datastore
 start esx_identity
 start esx_vehicleshop
+start esx_lscustom
 start skinchanger
 start esx_skin
 start esx_clotheshop
