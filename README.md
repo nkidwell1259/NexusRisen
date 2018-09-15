@@ -85,6 +85,10 @@ start esx_ranger
 start esx_rebel
 start esx_traffic
 start esx_truckerjob
+start esx_airlines
+start esx_banksecurity
+start esx_garbagejob
+start esx_pizza
 start esx_vigneronjob
 ```
 # Map Resources
