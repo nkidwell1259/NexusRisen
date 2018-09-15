@@ -13,6 +13,7 @@ start hardcap
 start rconlog
 start scoreboard
 start playernames
+start load
 ```
 
 # Main Mysql Resources
