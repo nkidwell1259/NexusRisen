@@ -102,6 +102,10 @@ start police_dept
 start weigh_stations
 start route13_barriers
 ```
+#Uniforms Resources
+```
+start police_uniforms
+```
 # Vehicle Resources
 ```
 start blaine_sheriff
