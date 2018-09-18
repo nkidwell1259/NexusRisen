@@ -83,6 +83,7 @@ start esx_hunting
 start esx_cinema
 start pNotify
 start esx_lapdance
+start esx_trunk
 ```
 # EssentialMode Jobs
 ```
