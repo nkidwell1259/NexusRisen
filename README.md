@@ -84,6 +84,7 @@ start esx_cinema
 start pNotify
 start esx_lapdance
 start esx_trunk
+esx_alpr
 ```
 # EssentialMode Jobs
 ```
@@ -189,5 +190,10 @@ INSERT INTO `shops` (name, item, price) VALUES
 	('LTDgasoline','drill',1000)
 ;
 ```
-
+## ESX ALPR
+```
+Radar/ALPR 
+Use numpad5 to turn on/off the ALPR
+Use numpad8 to freeze un(freeze) the ALPR
+```
 
