@@ -80,6 +80,7 @@ start esx_blackmoney
 start esx-carrental
 start esx_realweapons
 start esx_hunting
+start esx_cinema
 ```
 # EssentialMode Jobs
 ```
