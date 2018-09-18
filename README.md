@@ -84,7 +84,8 @@ start esx_cinema
 start pNotify
 start esx_lapdance
 start esx_trunk
-esx_alpr
+start esx_alpr
+start esx_jailer
 ```
 # EssentialMode Jobs
 ```
