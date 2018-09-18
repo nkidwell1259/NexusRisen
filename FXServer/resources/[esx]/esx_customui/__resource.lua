@@ -46,6 +46,9 @@ files {
 	'html/img/jobs/fueler.png',
 	'html/img/jobs/trucker.png',
 	'html/img/jobs/taxi.png',
+	'html/img/jobs/pilot.png',
+	'html/img/jobs/coastguard.png',
+	'html/img/jobs/foodtruck.png',
 	'html/img/jobs/unemployed.png',
 	-- Status Images
 	'html/img/status/hunger.png',
