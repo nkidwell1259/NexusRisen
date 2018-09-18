@@ -132,26 +132,6 @@ start tase
 start indicators
 ```
 
-# MYSQL EXECUTION CODE
-
-## Optium Drug
-
-```
-INSERT INTO items (name, label) VALUES
-(‘opium’, ‘Opium’),
-(‘opium_pooch’, ‘Pochon de opium’)
-;
-```
-
-## Esx Basic Needs
-
-```
-INSERT INTO `items` (`name`, `label`, `limit`) VALUES
-	('bread', 'Pain', 10),
-	('water', 'Eau', 5)
-;
-```
-
 # Configuration
 
 ## Esx Crafting
@@ -173,23 +153,8 @@ Remove will default to true if not specified.
 The Crafting Menu can be made available either through a "store" where a player must visit a specified location on the map, or through a keyboard shortcut. 
 Both of these options may be configured through the config.lua file.
 
-## Drill Machine Item
-Create "drill" in items table
+# Essential Scripts Commands
 
-```
-INSERT INTO `items` (`name`, `label`, `limit`) VALUES  
-    ('drill', 'Borrmaskin', 1)
-;
-```
-If you want it added to ESX Shops. Execute this SQL.
-
-```
-INSERT INTO `shops` (name, item, price) VALUES
-	('TwentyFourSeven','drill',1000),
-	('RobsLiquor','drill',1000),
-	('LTDgasoline','drill',1000)
-;
-```
 ## ESX ALPR
 ```
 Radar/ALPR 
