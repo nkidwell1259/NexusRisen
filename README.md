@@ -81,6 +81,8 @@ start esx-carrental
 start esx_realweapons
 start esx_hunting
 start esx_cinema
+start pNotify
+start esx_lapdance
 ```
 # EssentialMode Jobs
 ```
@@ -124,7 +126,7 @@ start realaitraffic
 start slashtires
 start arrestanims
 start tase
-start indicators 
+start indicators
 ```
 
 # MYSQL EXECUTION CODE
