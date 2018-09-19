@@ -9,8 +9,7 @@ client_scripts {
   'locales/en.lua',
   'locales/fr.lua',
   'config.lua',
-  'client/main.lua',
-  'handsup.lua'
+  'client/main.lua'
 }
 
 server_scripts {
@@ -18,6 +17,5 @@ server_scripts {
   'locales/en.lua',
   'locales/fr.lua',
   'config.lua',
-  'server/main.lua',
-  'handsup.lua'
+  'server/main.lua'
 }
