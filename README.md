@@ -39,6 +39,7 @@ start esx_map
 start esx_shops
 start esx_extraitems
 start allcity_wallet
+start allcity_deadscreen
 start new_banking
 start esx_status
 start esx_basicneeds
