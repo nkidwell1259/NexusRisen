@@ -87,6 +87,7 @@ start esx_lapdance
 start esx_trunk
 start esx_alpr
 start esx_jailer
+start esx_holdup
 ```
 # EssentialMode Jobs
 ```
@@ -102,7 +103,7 @@ start esx_banksecurity
 start esx_garbagejob
 start esx_pizza
 start esx_vigneronjob
-start esx_holdup
+start esx_foodtruck
 ```
 # Map Resources
 ```
