@@ -132,6 +132,7 @@ start slashtires
 start arrestanims
 start tase
 start indicators
+start tab
 ```
 
 # Configuration
