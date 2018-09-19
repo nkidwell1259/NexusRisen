@@ -88,6 +88,7 @@ start esx_trunk
 start esx_alpr
 start esx_jailer
 start esx_holdup
+start esx_rpchat
 ```
 # EssentialMode Jobs
 ```
