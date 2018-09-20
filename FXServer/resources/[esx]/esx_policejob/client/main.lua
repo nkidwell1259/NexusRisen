@@ -480,6 +480,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('out_the_vehicle'),	value = 'out_the_vehicle'},
 				{label = _U('fine'),			value = 'fine'},
 				{label = _U('unpaid_bills'),	value = 'unpaid_bills'},
+				{label = 'Criminalrecord',      value = 'criminalrecords'},
 				{label = _U('jail'),            value = 'jail'}
 			}
 		
@@ -517,6 +518,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
+					elseif action == 'criminalrecords' then
+						TriggerEvent('esx_criminalrecords:open')
 					elseif action == 'jail' then
 						JailPlayer(GetPlayerServerId(closestPlayer))
 					end

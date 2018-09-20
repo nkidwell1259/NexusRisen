@@ -66,6 +66,7 @@ start esx_license
 start esx_property
 start esx_garage
 start esx_policejob
+start esx_criminalrecords
 start esx_celldoors
 start esx_drugs
 start esx_selldrugs
