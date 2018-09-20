@@ -88,6 +88,7 @@ start esx_lapdance
 start esx_trunk
 start esx_alpr
 start esx_jailer
+start esx_jb_realtimejailer
 start esx_holdup
 start esx_rpchat
 start esx_phone

@@ -481,7 +481,8 @@ function OpenPoliceActionsMenu()
 				{label = _U('fine'),			value = 'fine'},
 				{label = _U('unpaid_bills'),	value = 'unpaid_bills'},
 				{label = 'Criminalrecord',      value = 'criminalrecords'},
-				{label = _U('jail'),            value = 'jail'}
+				{label = _U('jail'),            value = 'jail'},
+				{label = _U('jail_menu'),		value = 'jail_menu'}
 			}
 		
 			if Config.EnableLicenses then
@@ -520,6 +521,8 @@ function OpenPoliceActionsMenu()
 						OpenUnpaidBillsMenu(closestPlayer)
 					elseif action == 'criminalrecords' then
 						TriggerEvent('esx_criminalrecords:open')
+					elseif action == 'jail_menu' then
+					openJailMenu(GetPlayerServerId(closestPlayer))
 					elseif action == 'jail' then
 						JailPlayer(GetPlayerServerId(closestPlayer))
 					end
@@ -1963,6 +1966,59 @@ function JailPlayer(player)
 		menu.close()
 	end
 	)
+end
+
+function openJailMenu(playerid)
+  local elements = {
+    {label = "Cell 1",     value = 'JailPoliceStation1'},
+    {label = "Cell 2",     value = 'JailPoliceStation2'},
+    {label = "Cell 3",     value = 'JailPoliceStation3'},
+    {label = "Federal Prison",     value = 'FederalJail'},
+    {label = "UnJail Player",     value = 'FreePlayer'},
+  }
+  ESX.UI.Menu.Open(
+	'default', GetCurrentResourceName(), 'jail_menu',
+	{
+	  title    = 'Jail the player',
+	  align    = 'top-left',
+	  elements = elements,
+	},
+	function(data3, menu)
+		if data3.current.value ~= "FreePlayer" then
+			maxLength = 4
+			AddTextEntry('FMMC_KEY_TIP8', "Time spend in prison")
+			DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", maxLength)
+			ESX.ShowNotification("~b~Type number of hours you want to set for player.")
+			blockinput = true
+
+			while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do
+				Citizen.Wait( 0 )
+			end
+
+			local jailtime = GetOnscreenKeyboardResult()
+
+			UnblockMenuInput()
+
+			if string.len(jailtime) >= 1 and tonumber(jailtime) ~= nil then
+				TriggerServerEvent('esx_jb_jailer:PutInJail', playerid, data3.current.value, tonumber(jailtime)*60*60)
+			else
+				return false
+			end
+		else
+			TriggerServerEvent('esx_jb_jailer:UnJailplayer', playerid)
+		end
+	end,
+	function(data3, menu)
+	  menu.close()
+	end
+  )
+end
+
+function UnblockMenuInput()
+    Citizen.CreateThread( function()
+        Citizen.Wait( 150 )
+        blockinput = false 
+    end )
 end
 
 -- TODO
