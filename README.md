@@ -97,6 +97,7 @@ start esx_legacyfuel
 # EssentialMode Jobs
 ```
 start esx_jobs
+start esx_joblisting
 start esx_gopostal
 start esx_mafia
 start esx_ranger
