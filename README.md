@@ -30,7 +30,9 @@ start essentialmode
 start es_plugin_mysql
 start es_extended
 start es_admin2
-start nativeui 
+start nativeui
+start eup
+start eup-ui 
 ```
 # Main EssentialMode CronJob
 ```
@@ -137,6 +139,7 @@ start gruppe
 start fire
 start fire_heli
 start fire_plane
+start ems
 start vehicle_civilian
 ```
 # Resources
