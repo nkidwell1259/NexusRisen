@@ -136,7 +136,6 @@ start calmai
 start realaitraffic
 start slashtires
 start arrestanims
-start tase
 start indicators
 start tab
 ```
