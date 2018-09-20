@@ -144,6 +144,7 @@ start civ_veh
 ```
 # Resources
 ```
+start speedo
 start calmai
 start vehicleextramenu
 start realaitraffic
