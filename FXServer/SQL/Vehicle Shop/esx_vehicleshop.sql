@@ -25,9 +25,9 @@ CREATE TABLE `cardealer_vehicles` (
 );
 
 CREATE TABLE `owned_vehicles` (
-	`owner` varchar(30) NOT NULL,
-	`plate` varchar(12) NOT NULL,
-	`vehicle` longtext,
+	`owner` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb4_bin',
+	`plate` VARCHAR(12) NOT NULL COLLATE 'utf8mb4_bin',
+	`vehicle` LONGTEXT NULL COLLATE 'utf8mb4_bin',
 
 	PRIMARY KEY (`plate`)
 );
