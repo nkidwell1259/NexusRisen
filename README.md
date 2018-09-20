@@ -140,7 +140,7 @@ start fire
 start fire_heli
 start fire_plane
 start ems
-start vehicle_civilian
+start civ_veh
 ```
 # Resources
 ```
