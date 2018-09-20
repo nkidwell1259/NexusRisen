@@ -1,28 +1,30 @@
+USE `essentialmode`;
+
 INSERT INTO `addon_account` (name, label, shared) VALUES
-	('society_mecano', 'Mécano', 1)
+	('society_mecano', 'Mechanic', 1)
 ;
 
 INSERT INTO `addon_inventory` (name, label, shared) VALUES
-	('society_mecano', 'Mécano', 1)
+	('society_mecano', 'Mechanic', 1)
 ;
 
 INSERT INTO `jobs` (name, label) VALUES
-	('mecano', 'Mécano')
+	('mecano', 'Mechanic')
 ;
 
 INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES
-	('mecano',0,'recrue','Recrue',12,'{}','{}'),
+	('mecano',0,'recrue','Recruit',12,'{}','{}'),
 	('mecano',1,'novice','Novice',24,'{}','{}'),
-	('mecano',2,'experimente','Experimente',36,'{}','{}'),
-	('mecano',3,'chief',"Chef d\'équipe",48,'{}','{}'),
-	('mecano',4,'boss','Patron',0,'{}','{}')
+	('mecano',2,'experimente','Experienced',36,'{}','{}'),
+	('mecano',3,'chief','Leader',48,'{}','{}'),
+	('mecano',4,'boss','Boss',0,'{}','{}')
 ;
 
 INSERT INTO `items` (name, label, `limit`) VALUES
-	('gazbottle', 'bouteille de gaz', 11),
-	('fixtool', 'outils réparation', 6),
-	('carotool', 'outils carosserie', 4),
-	('blowpipe', 'Chalumeaux', 10),
-	('fixkit', 'Kit réparation', 5),
-	('carokit', 'Kit carosserie', 3)
+	('gazbottle', 'Gas Bottle', 11),
+	('fixtool', 'Repair Tools', 6),
+	('carotool', 'Tools', 4),
+	('blowpipe', 'Blowtorch', 10),
+	('fixkit', 'Repair Kit', 5),
+	('carokit', 'Body Kit', 3)
 ;

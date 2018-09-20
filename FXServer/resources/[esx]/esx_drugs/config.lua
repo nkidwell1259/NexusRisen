@@ -14,7 +14,7 @@ Config.TimeToFarm    = 17 * 1000
 Config.TimeToProcess = 46 * 1000
 Config.TimeToSell    = 5  * 1000
 
-Config.Locale = 'fr'
+Config.Locale = 'en'
 
 Config.Zones = {
 	CokeField =			{x = 2448.92,	y = -1836.80,	z = 51.95,	name = _U('coke_field'),		sprite = 501,	color = 40},

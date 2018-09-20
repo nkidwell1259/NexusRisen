@@ -1,5 +1,5 @@
 Config = {}
-Config.Locale = 'fr'
+Config.Locale = 'en'
 
 Config.PoliceNumberRequired = 2
 Config.TimerBeforeNewRob = 1800 -- seconds
