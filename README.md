@@ -93,6 +93,7 @@ start esx_holdup
 start esx_rpchat
 start esx_phone
 start esx_legacyfuel
+start esx_cruisecontrol
 ```
 # EssentialMode Jobs
 ```
