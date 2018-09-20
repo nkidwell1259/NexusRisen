@@ -30,6 +30,7 @@ start essentialmode
 start es_plugin_mysql
 start es_extended
 start es_admin2
+start nativeui 
 ```
 # Main EssentialMode CronJob
 ```
@@ -129,12 +130,13 @@ start police_uniforms
 ```
 # Vehicle Resources
 ```
-start blaine_sheriff
-start los_santos_pd
+start blaine
+start santos
+start police_heli
 start gruppe
-start helicopter_police 
-start fire_boeing_747
-start helicopter_fire
+start fire
+start fire_heli
+start fire_plane
 start vehicle_civilian
 ```
 # Resources
