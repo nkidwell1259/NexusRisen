@@ -91,6 +91,7 @@ start esx_jailer
 start esx_holdup
 start esx_rpchat
 start esx_phone
+start esx_legacyfuel
 ```
 # EssentialMode Jobs
 ```
