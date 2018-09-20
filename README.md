@@ -177,4 +177,43 @@ Radar/ALPR
 Use numpad5 to turn on/off the ALPR
 Use numpad8 to freeze un(freeze) the ALPR
 ```
+## Tabby
+```
+Usage
+“M” key to open the tablet.
+“ESC” to close the tablet and leave it on the page you were on next time it opens.
+The tablet button on the bottom of the tablet will bring you back to the home screen with 
+one click and then click it again to close.
+Hover over an app to see a description of it. Select the app you wish to open.
+To edit the web pages you’ll need to find the page you wish to edit 
+(the actual HTML page in the files). I have left templates from my old server in there to 
+help you with ideas and things to add in. For your CAD/MDT make sure you add your address in 
+the iframe correctly on the opencad.html page.
+````
 
+## Vehicle Extra Menu
+```
+To open the menu press the button for weapon drops, by default: F9.
+```
+
+## Police Job
+```
+To open the menu press the button for PoliceJob, by default: F6.
+```
+
+## Cruise Control
+```
+Press the button Y for cruise control.
+```
+
+## Indicator
+```
+Left Or Right Arrow Keys
+Down Button for Hazards
+Automatically turns off when turned
+```
+
+## Arrest Animation
+```
+Type /k in chat
+```
