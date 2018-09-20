@@ -133,6 +133,7 @@ start vehicle_civilian
 # Resources
 ```
 start calmai
+start vehicleextramenu
 start realaitraffic
 start slashtires
 start arrestanims
