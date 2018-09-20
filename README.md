@@ -1,5 +1,8 @@
 # Nexus Risen
 
+# Discord Support
+https://discord.gg/3n3QDVb
+
 Run the Resources in correct order in order to work properly
 
 # Main FiveM Resources
