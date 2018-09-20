@@ -95,6 +95,7 @@ start esx_rpchat
 start esx_phone
 start esx_legacyfuel
 start esx_cruisecontrol
+start esx_atm
 ```
 # EssentialMode Jobs
 ```
