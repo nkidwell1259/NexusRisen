@@ -71,6 +71,7 @@ start esx_celldoors
 start esx_drugs
 start esx_selldrugs
 start esx_crafting
+start esx_accessories
 start esx-ecobottles
 start esx_hospital
 start esx_borrmaskin
