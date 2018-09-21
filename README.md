@@ -94,7 +94,6 @@ start esx_hunting
 start esx_cinema
 start pNotify
 start esx_lapdance
-start esx_trunk
 start esx_alpr
 start esx_jailer
 start esx_jb_realtimejailer
@@ -128,10 +127,7 @@ start police_dept
 start weigh_stations
 start route13_barriers
 ```
-#Uniforms Resources
-```
-start police_uniforms
-```
+
 # Vehicle Resources
 ```
 start blaine

@@ -10,8 +10,8 @@ INSERT INTO `addon_inventory` (name, label, shared) VALUES
 	('society_rebel', 'Rebel', 1)
 ;
 
-INSERT INTO `jobs` (`name`, `label`, `whitelisted`) VALUES
-('rebel', 'Rebel', 1);
+INSERT INTO `jobs` (`name`, `label`) VALUES
+('rebel', 'Rebel');
 
 --
 -- Déchargement des données de la table `jobs_grades`

@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 INSERT INTO `addon_account` (name, label, shared) VALUES
   ('society_airlines','Airlines',1)
 ;

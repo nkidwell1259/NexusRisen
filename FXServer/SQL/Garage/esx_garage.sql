@@ -1,5 +1,3 @@
-USE `essentialmode`;
-
 CREATE TABLE `user_parkings` (
   
   `id` int(11) NOT NULL AUTO_INCREMENT,
