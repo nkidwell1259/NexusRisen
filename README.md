@@ -70,6 +70,7 @@ start skinchanger
 start esx_skin
 start esx_clotheshop
 start esx_license
+start esx_dmvschool
 start esx_property
 start esx_garage
 start esx_policejob
