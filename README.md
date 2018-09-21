@@ -144,7 +144,6 @@ start civ_veh
 ```
 start speedo
 start calmai
-start vehicleextramenu
 start realaitraffic
 start slashtires
 start arrestanims
