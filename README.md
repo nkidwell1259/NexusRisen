@@ -208,14 +208,18 @@ To open the menu press the button for PoliceJob, by default: F6.
 Press the button Y for cruise control.
 ```
 
-## Indicator
+## Pee / Poop
 ```
-Left Or Right Arrow Keys
-Down Button for Hazards
-Automatically turns off when turned
+Press the button F5 for Bathroom Menu
 ```
 
 ## Arrest Animation
 ```
 Type /k in chat
+```
+
+## EUP Uniforms
+```
+Type /eup in chat
+"Must get special license key for this feature to work propertly".
 ```
