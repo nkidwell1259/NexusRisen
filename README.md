@@ -89,7 +89,6 @@ start esx_mecanojob
 start esx_thief
 start esx_blackmoney
 start esx-carrental
-start esx_realweapons
 start esx_hunting
 start esx_cinema
 start pNotify
@@ -99,10 +98,8 @@ start esx_jailer
 start esx_jb_realtimejailer
 start esx_holdup
 start esx_rpchat
-start esx_phone
 start esx_legacyfuel
 start esx_cruisecontrol
-start esx_atm
 ```
 # EssentialMode Jobs
 ```
@@ -130,8 +127,7 @@ start route13_barriers
 
 # Vehicle Resources
 ```
-start blaine
-start santos
+start lspd
 start police_heli
 start gruppe
 start fire
