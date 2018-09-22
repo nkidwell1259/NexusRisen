@@ -30,9 +30,9 @@ start essentialmode
 start es_plugin_mysql
 start es_extended
 start es_admin2
-start nativeui
-start eup
-start eup-ui 
+start NativeUI
+start eup-stream
+start eup-ui
 ```
 # Main EssentialMode CronJob
 ```
@@ -147,7 +147,6 @@ start calmai
 start realaitraffic
 start slashtires
 start arrestanims
-start indicators
 start tab
 ```
 

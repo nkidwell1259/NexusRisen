@@ -22,26 +22,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
 		Items = {},
 		Windows = {},
 		Children = {},
-		Controls = {
-			Back = {
-				Enabled = true,
-			},
-			Select = {
-				Enabled = true,
-			},
-			Left = {
-				Enabled = true,
-			},
-			Right = {
-				Enabled = true,
-			},
-			Up = {
-				Enabled = true,
-			},
-			Down = {
-				Enabled = true,
-			},
-		},
+		Controls = {},
 		ParentMenu = nil,
 		ParentItem = nil,
 		_Visible = false,
@@ -77,43 +58,6 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
 				Back = "BACK",
 				Error = "ERROR",
 			},
-            EnabledControls = {
-                Controller = {
-                    {0, 2}, -- Look Up and Down
-                    {0, 1}, -- Look Left and Right
-                    {0, 25}, -- Aim
-                    {0, 24}, -- Attack
-                },
-                Keyboard = {
-                    {0, 201}, -- Select
-                    {0, 195}, -- X axis
-                    {0, 196}, -- Y axis
-                    {0, 187}, -- Down
-                    {0, 188}, -- Up
-                    {0, 189}, -- Left
-                    {0, 190}, -- Right
-                    {0, 202}, -- Back
-                    {0, 217}, -- Select
-                    {0, 242}, -- Scroll down
-                    {0, 241}, -- Scroll up
-                    {0, 239}, -- Cursor X
-                    {0, 240}, -- Cursor Y
-                    {0, 31}, -- Move Up and Down
-                    {0, 30}, -- Move Left and Right
-                    {0, 21}, -- Sprint
-                    {0, 22}, -- Jump
-                    {0, 23}, -- Enter
-                    {0, 75}, -- Exit Vehicle
-                    {0, 71}, -- Accelerate Vehicle
-                    {0, 72}, -- Vehicle Brake
-                    {0, 59}, -- Move Vehicle Left and Right
-                    {0, 89}, -- Fly Yaw Left
-                    {0, 9}, -- Fly Left and Right
-                    {0, 8}, -- Fly Up and Down
-                    {0, 90}, -- Fly Yaw Right
-                    {0, 76}, -- Vehicle Handbrake
-                },
-            },
 		}
 	}
 
@@ -175,16 +119,41 @@ function UIMenu:DisEnableControls(bool)
 	if bool then
 		return
 	else
-        if Controller() then
-            for Index = 1, #self.Settings.EnabledControls.Controller do
-                EnableControlAction(self.Settings.EnabledControls.Controller[Index][1], self.Settings.EnabledControls.Controller[Index][2], true)
-            end
-        else
-            for Index = 1, #self.Settings.EnabledControls.Keyboard do
-                EnableControlAction(self.Settings.EnabledControls.Keyboard[Index][1], self.Settings.EnabledControls.Keyboard[Index][2], true)
-            end
-        end
-    end
+		if Controller() then
+			EnableControlAction(0, 2, true)
+			EnableControlAction(0, 1, true)
+			EnableControlAction(0, 25, true)
+			EnableControlAction(0, 24, true)
+		else
+			EnableControlAction(0, 201, true)
+			EnableControlAction(0, 195, true)
+			EnableControlAction(0, 196, true)
+			EnableControlAction(0, 187, true)
+			EnableControlAction(0, 188, true)
+			EnableControlAction(0, 189, true)
+			EnableControlAction(0, 190, true)
+			EnableControlAction(0, 202, true)
+			EnableControlAction(0, 217, true)
+			EnableControlAction(0, 242, true)
+			EnableControlAction(0, 241, true)
+			EnableControlAction(0, 239, true)
+			EnableControlAction(0, 240, true)
+			EnableControlAction(0, 31, true)
+			EnableControlAction(0, 30, true)
+			EnableControlAction(0, 21, true)
+			EnableControlAction(0, 22, true)
+			EnableControlAction(0, 23, true)
+			EnableControlAction(0, 75, true)
+			EnableControlAction(0, 71, true)
+			EnableControlAction(0, 72, true)
+			EnableControlAction(0, 59, true)
+			EnableControlAction(0, 89, true)
+			EnableControlAction(0, 9, true)
+			EnableControlAction(0, 8, true)
+			EnableControlAction(0, 90, true)
+			EnableControlAction(0, 76, true)
+		end
+	end
 end
 
 function UIMenu:InstructionalButtons(bool)
@@ -476,16 +445,15 @@ function UIMenu:ProcessControl()
 		return
 	end
 
-	if self.Controls.Back.Enabled and (IsDisabledControlJustReleased(0, 177) or IsDisabledControlJustReleased(1, 177) or IsDisabledControlJustReleased(2, 177) or IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199)) then
+	if IsDisabledControlJustReleased(0, 177) or IsDisabledControlJustReleased(1, 177) or IsDisabledControlJustReleased(2, 177) or IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199) then
 		self:GoBack()
 	end
-	
 	if #self.Items == 0 then
 		return
 	end
 
 	if not self.UpPressed then
-		if self.Controls.Up.Enabled and (IsDisabledControlJustPressed(0, 172) or IsDisabledControlJustPressed(1, 172) or IsDisabledControlJustPressed(2, 172) or IsDisabledControlJustPressed(0, 241) or IsDisabledControlJustPressed(1, 241) or IsDisabledControlJustPressed(2, 241) or IsDisabledControlJustPressed(2, 241)) then
+		if IsDisabledControlJustPressed(0, 172) or IsDisabledControlJustPressed(1, 172) or IsDisabledControlJustPressed(2, 172) or IsDisabledControlJustPressed(0, 241) or IsDisabledControlJustPressed(1, 241) or IsDisabledControlJustPressed(2, 241) or IsDisabledControlJustPressed(2, 241) then
 			Citizen.CreateThread(function()
 				self.UpPressed = true
 				if #self.Items > self.Pagination.Total + 1 then
@@ -495,7 +463,7 @@ function UIMenu:ProcessControl()
 				end
 				self:UpdateScaleform()
 				Citizen.Wait(175)
-				while self.Controls.Up.Enabled and (IsDisabledControlPressed(0, 172) or IsDisabledControlPressed(1, 172) or IsDisabledControlPressed(2, 172) or IsDisabledControlPressed(0, 241) or IsDisabledControlPressed(1, 241) or IsDisabledControlPressed(2, 241) or IsDisabledControlPressed(2, 241)) do
+				while IsDisabledControlPressed(0, 172) or IsDisabledControlPressed(1, 172) or IsDisabledControlPressed(2, 172) or IsDisabledControlPressed(0, 241) or IsDisabledControlPressed(1, 241) or IsDisabledControlPressed(2, 241) or IsDisabledControlPressed(2, 241) do
 					if #self.Items > self.Pagination.Total + 1 then
 						self:GoUpOverflow()
 					else
@@ -510,7 +478,7 @@ function UIMenu:ProcessControl()
 	end
 
 	if not self.DownPressed then
-		if self.Controls.Down.Enabled and (IsDisabledControlJustPressed(0, 173) or IsDisabledControlJustPressed(1, 173) or IsDisabledControlJustPressed(2, 173) or IsDisabledControlJustPressed(0, 242) or IsDisabledControlJustPressed(1, 242) or IsDisabledControlJustPressed(2, 242)) then
+		if IsDisabledControlJustPressed(0, 173) or IsDisabledControlJustPressed(1, 173) or IsDisabledControlJustPressed(2, 173) or IsDisabledControlJustPressed(0, 242) or IsDisabledControlJustPressed(1, 242) or IsDisabledControlJustPressed(2, 242) then
 			Citizen.CreateThread(function()
 				self.DownPressed = true
 				if #self.Items > self.Pagination.Total + 1 then
@@ -520,7 +488,7 @@ function UIMenu:ProcessControl()
 				end
 				self:UpdateScaleform()
 				Citizen.Wait(175)
-				while self.Controls.Down.Enabled and (IsDisabledControlPressed(0, 173) or IsDisabledControlPressed(1, 173) or IsDisabledControlPressed(2, 173) or IsDisabledControlPressed(0, 242) or IsDisabledControlPressed(1, 242) or IsDisabledControlPressed(2, 242)) do
+				while IsDisabledControlPressed(0, 173) or IsDisabledControlPressed(1, 173) or IsDisabledControlPressed(2, 173) or IsDisabledControlPressed(0, 242) or IsDisabledControlPressed(1, 242) or IsDisabledControlPressed(2, 242) do
 					if #self.Items > self.Pagination.Total + 1 then
 						self:GoDownOverflow()
 					else
@@ -535,12 +503,12 @@ function UIMenu:ProcessControl()
 	end
 
 	if not self.LeftPressed then
-		if self.Controls.Left.Enabled and (IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174)) then
+		if IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174) then
 			Citizen.CreateThread(function()
 				self.LeftPressed = true
 				self:GoLeft()
 				Citizen.Wait(175)
-				while self.Controls.Left.Enabled and (IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174)) do
+				while IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174) do
 					self:GoLeft()
 					Citizen.Wait(125)
 				end
@@ -550,12 +518,12 @@ function UIMenu:ProcessControl()
 	end
 
 	if not self.RightPressed then
-		if self.Controls.Right.Enabled and (IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175)) then
+		if IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175) then
 			Citizen.CreateThread(function()
 				self.RightPressed = true
 				self:GoRight()
 				Citizen.Wait(175)
-				while self.Controls.Right.Enabled and (IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175)) do
+				while IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175) do
 					self:GoRight()
 					Citizen.Wait(125)
 				end
@@ -564,7 +532,7 @@ function UIMenu:ProcessControl()
 		end
 	end
 
-	if self.Controls.Select.Enabled and (IsDisabledControlJustPressed(0, 201) or IsDisabledControlJustPressed(1, 201) or IsDisabledControlJustPressed(2, 201)) then
+	if IsDisabledControlJustPressed(0, 201) or IsDisabledControlJustPressed(1, 201) or IsDisabledControlJustPressed(2, 201) then
 		self:SelectItem()
 	end
 end
@@ -659,11 +627,6 @@ function UIMenu:GoLeft()
 		return
 	end
 
-	if not self.Items[self:CurrentSelection()]:Enabled() then
-		PlaySoundFrontend(-1, self.Settings.Audio.Error, self.Settings.Audio.Library, true)
-		return
-	end
-	
 	if subtype == "UIMenuListItem" then
 		local Item = self.Items[self:CurrentSelection()]
 		Item:Index(Item._Index - 1)
@@ -688,11 +651,6 @@ end
 function UIMenu:GoRight()
 	local type, subtype = self.Items[self:CurrentSelection()]()
 	if subtype ~= "UIMenuListItem" and subtype ~= "UIMenuSliderItem" and subtype ~= "UIMenuProgressItem" then
-		return
-	end
-
-	if not self.Items[self:CurrentSelection()]:Enabled() then
-		PlaySoundFrontend(-1, self.Settings.Audio.Error, self.Settings.Audio.Library, true)
 		return
 	end
 
@@ -987,8 +945,7 @@ function UIMenu:ProcessMouse()
 							elseif SubType == "UIMenuProgressItem" then
 								if IsMouseInBounds(Item.Bar.X + SafeZone.X, Item.Bar.Y + SafeZone.Y - 12, Item.Data.Max, Item.Bar.Height + 24) then
 									Item:CalculateProgress(math.round(GetControlNormal(0, 239) * 1920) - SafeZone.X)
-                                    self.OnProgressChange(self, Item, Item.Data.Index)
-                                    Item.OnProgressChanged(self, Item, Item.Data.Index)
+									PlaySoundFrontend(-1, self.Settings.Audio.LeftRight, self.Settings.Audio.Library, true)
 								else
 									self:SelectItem()
 								end
@@ -1024,8 +981,6 @@ function UIMenu:ProcessMouse()
 								elseif SubType == "UIMenuProgressItem" then
 									if IsMouseInBounds(Item.Bar.X + SafeZone.X, Item.Bar.Y + SafeZone.Y - 12, Item.Data.Max, Item.Bar.Height + 24) then
 										Item:CalculateProgress(math.round(GetControlNormal(0, 239) * 1920) - SafeZone.X)
-                                        self.OnProgressChange(self, Item, Item.Data.Index)
-                                        Item.OnProgressChanged(self, Item, Item.Data.Index)
 									else
 										self:SelectItem()
 									end
@@ -1137,22 +1092,6 @@ function UIMenu:RemoveInstructionButton(button)
 	end
 end
 
-function UIMenu:AddEnabledControl(Inputgroup, Control, Controller)
-    if tonumber(Inputgroup) and tonumber(Control) then
-        table.insert(self.Settings.EnabledControls[(Controller and "Controller" or "Keyboard")], {Inputgroup, Control})
-    end
-end
-
-function UIMenu:RemoveEnabledControl(Inputgroup, Control, Controller)
-    local Type = (Controller and "Controller" or "Keyboard")
-    for Index = 1, #self.Settings.EnabledControls[Type] do
-        if Inputgroup == self.Settings.EnabledControls[Type][Index][1] and Control == self.Settings.EnabledControls[Type][Index][2] then
-            table.remove(self.Settings.EnabledControls[Type], Index)
-            break
-        end
-    end
-end
-
 function UIMenu:UpdateScaleform()
 	if not self._Visible or not self.Settings.InstructionalButtons then
 		return
@@ -1174,13 +1113,11 @@ function UIMenu:UpdateScaleform()
 	PushScaleformMovieFunctionParameterString("Select")
 	PopScaleformMovieFunction()
 
-	if self.Controls.Back.Enabled then
-		PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-		PushScaleformMovieFunctionParameterInt(1)
-		PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 177, 0))
-		PushScaleformMovieFunctionParameterString("Back")
-		PopScaleformMovieFunction()
-    	end
+	PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+	PushScaleformMovieFunctionParameterInt(1)
+	PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 177, 0))
+	PushScaleformMovieFunctionParameterString("Back")
+	PopScaleformMovieFunction()
 
 	local count = 2
 
