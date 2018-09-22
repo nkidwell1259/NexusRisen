@@ -481,7 +481,6 @@ function OpenPoliceActionsMenu()
 				{label = _U('fine'),			value = 'fine'},
 				{label = _U('unpaid_bills'),	value = 'unpaid_bills'},
 				{label = 'Criminalrecord',      value = 'criminalrecords'},
-				{label = _U('jail'),            value = 'jail'},
 				{label = _U('jail_menu'),		value = 'jail_menu'}
 			}
 		
@@ -523,8 +522,6 @@ function OpenPoliceActionsMenu()
 						TriggerEvent('esx_criminalrecords:open')
 					elseif action == 'jail_menu' then
 					openJailMenu(GetPlayerServerId(closestPlayer))
-					elseif action == 'jail' then
-						JailPlayer(GetPlayerServerId(closestPlayer))
 					end
 
 				else

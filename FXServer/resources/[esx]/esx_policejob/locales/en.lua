@@ -128,4 +128,8 @@ Locales['en'] = {
   -- Notifications
   ['alert_police'] = 'police alert',
   ['phone_police'] = 'police',
+  
+  -- Jail Menu
+  ['jail_menu'] = 'Jail',
+  
 }
