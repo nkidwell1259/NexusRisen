@@ -116,7 +116,6 @@ start esx_banksecurity
 start esx_garbagejob
 start esx_pizza
 start esx_vigneronjob
-start esx_foodtruck
 ```
 # Map Resources
 ```
