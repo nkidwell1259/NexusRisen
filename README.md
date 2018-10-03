@@ -101,6 +101,7 @@ start esx_holdup
 start esx_rpchat
 start esx_legacyfuel
 start esx_cruisecontrol
+start esx_robbery
 ```
 # EssentialMode Jobs
 ```
