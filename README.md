@@ -145,6 +145,7 @@ start calmai
 start realaitraffic
 start slashtires
 start arrestanims
+start shield
 start tab
 ```
 
@@ -220,4 +221,8 @@ Type /k in chat
 ```
 Type /eup in chat
 "Must get special license key for this feature to work propertly".
+```
+## Police Shield
+```
+type /shield in chat
 ```
