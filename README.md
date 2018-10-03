@@ -146,6 +146,7 @@ start realaitraffic
 start slashtires
 start arrestanims
 start shield
+start WeazelNewsCam
 start tab
 ```
 
@@ -225,4 +226,11 @@ Type /eup in chat
 ## Police Shield
 ```
 type /shield in chat
+```
+
+## Weazel News
+```
+Type /cam in chat = toggles the camera 
+Type /mic in chat = toggles the microphone
+Type /bmic in chat = toggles the boom mic
 ```
