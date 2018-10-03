@@ -74,6 +74,7 @@ start esx_dmvschool
 start esx_property
 start esx_garage
 start esx_policejob
+start esx_firejob
 start esx_criminalrecords
 start esx_celldoors
 start esx_drugs
