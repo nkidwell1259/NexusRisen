@@ -129,7 +129,9 @@ Locales['en'] = {
   ['alert_police'] = 'police alert',
   ['phone_police'] = 'police',
   
-  -- Jail Menu
+  -- Jail
   ['jail_menu'] = 'Jail',
   
+  -- Criminal Record
+  ['Criminalrecord'] = 'Criminal Record',
 }
