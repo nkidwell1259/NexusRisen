@@ -100,6 +100,8 @@ start esx_rpchat
 start esx_legacyfuel
 start esx_cruisecontrol
 start esx_robbery
+start esx_custom_tattoos
+start esx_tattoos
 ```
 # EssentialMode Jobs
 ```
