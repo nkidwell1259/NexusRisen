@@ -174,12 +174,6 @@ ESX.GetItemLabel = function(item)
 	end
 end
 
-ESX.GetItemLabel = function(name)
-    if ESX.Items[name] ~= nil then
-      return ESX.Items[name].label
-    end
-end
-
 ESX.GetWeaponList = function()
 	return Config.Weapons
 end
