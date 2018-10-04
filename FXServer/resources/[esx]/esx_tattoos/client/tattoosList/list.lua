@@ -142,6 +142,7 @@ tattoosList = {
 		{nameHash = "FM_Hip_M_Tat_047", addedX = 0.4, addedY=0.2,addedZ=0.5,rotZ = 104.6, price = 500},
 		{nameHash = "FM_Hip_M_Tat_048", addedX = -0.1, addedY=0.6,addedZ=-0.1,rotZ = 181.1, price = 500},
 	},
+	
 	["custom_overlays"] = {
 		{nameHash = "new_tattoo_01_M", addedX = 0.3, addedY=0.3,addedZ=0.0,rotZ = 145.4, price = 500},
 	},
