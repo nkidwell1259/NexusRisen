@@ -48,7 +48,6 @@ start allcity_wallet
 start allcity_deadscreen
 start new_banking
 start esx_status
-start esx_basicneeds
 start esx_menu_default
 start esx_menu_list
 start esx_menu_dialog
