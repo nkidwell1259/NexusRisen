@@ -143,17 +143,17 @@ tattoosList = {
 		{nameHash = "FM_Hip_M_Tat_048", addedX = -0.1, addedY=0.6,addedZ=-0.1,rotZ = 181.1, price = 500},
 	},
 	["custom_overlays"] = {
-		{nameHash = "new_tattoo_01_M", addedX = -0.278000, addedY= 0.490000,addedZ=0.000000,rotZ = 0.000000, price = 500},
+		{nameHash = "new_tattoo_01_M", addedX = 0.3, addedY=0.3,addedZ=0.0,rotZ = 145.4, price = 500},
 	},
 }
 
 
 
 tattoosCategories = {
-	{name = "Part 1", value = "mpbeach_overlays"},
-	{name = "Part 2", value = "mpbusiness_overlays"},
-	{name = "Part 3", value = "mphipster_overlays"},
-	{name = "Part 4", value = "custom_overlays"}
+	{name = "Beach Tattoos", value = "mpbeach_overlays"},
+	{name = "Business Tattoos", value = "mpbusiness_overlays"},
+	{name = "Hipster Tattoos", value = "mphipster_overlays"},
+	{name = "Custom Tattoos", value = "custom_overlays"}
 }
 
 
