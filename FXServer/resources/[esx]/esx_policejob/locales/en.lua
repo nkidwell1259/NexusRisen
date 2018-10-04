@@ -134,4 +134,7 @@ Locales['en'] = {
   
   -- Criminal Record
   ['Criminalrecord'] = 'Criminal Record',
+  
+  -- EUP
+  ['eupmenu'] = 'EUP Menu',
 }

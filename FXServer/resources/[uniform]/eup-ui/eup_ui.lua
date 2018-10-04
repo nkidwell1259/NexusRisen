@@ -3654,14 +3654,25 @@ menuPool:Add(mainMenu)
 
 menuPool:RefreshIndex()
 
-RegisterCommand('eup', function()
+RegisterCommand('kdjfhsuwnsjfhsnwuenakeuq', function()
     mainMenu:Visible(not mainMenu:Visible())
-end, false)
+end, true)
 
 CreateThread(function()
     while true do
         Wait(0)
 
         menuPool:ProcessMenus()
+    end
+end)
+
+AddEventHandler("eupmenu", function()
+    mainMenu:Visible(not mainMenu:Visible())
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        _menuPool:ProcessMenus()
     end
 end)

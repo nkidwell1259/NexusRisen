@@ -459,6 +459,7 @@ function OpenPoliceActionsMenu()
 		elements = {
 			{label = _U('citizen_interaction'),	value = 'citizen_interaction'},
 			{label = _U('vehicle_interaction'),	value = 'vehicle_interaction'},
+			{label = _U('eupmenu'),				value = 'eupmenu'},
 			{label = _U('object_spawner'),		value = 'object_spawner'}
 		}
 	}, function(data, menu)
@@ -514,7 +515,7 @@ function OpenPoliceActionsMenu()
 					elseif action == 'criminalrecords' then
 						TriggerEvent('esx_criminalrecords:open')
 					elseif action == 'jail_menu' then
-					openJailMenu(GetPlayerServerId(closestPlayer))
+						openJailMenu(GetPlayerServerId(closestPlayer))
 					end
 
 				else
@@ -607,7 +608,11 @@ function OpenPoliceActionsMenu()
 				menu2.close()
 			end
 			)
-
+			
+			elseif data.current.value == 'eupmenu' then
+				TriggerEvent('eupmenu')
+				ESX.UI.Menu.CloseAll()
+			
 		elseif data.current.value == 'object_spawner' then
 			ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'citizen_interaction',
