@@ -86,7 +86,6 @@ start esx_borrmaskin
 start esx_holdupbank
 start esx_panicbutton
 start esx_mecanojob
-start esx_thief
 start esx_blackmoney
 start esx-carrental
 start esx_hunting
