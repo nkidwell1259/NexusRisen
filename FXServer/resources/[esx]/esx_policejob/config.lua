@@ -7,7 +7,7 @@ Config.MarkerColor                = { r = 50, g = 50, b = 204 }
 
 Config.EnablePlayerManagement     = true
 Config.EnableArmoryManagement     = false
-Config.EnableESXIdentity          = false -- enable if you're using esx_identity
+Config.EnableESXIdentity          = true -- enable if you're using esx_identity
 Config.EnableNonFreemodePeds      = true -- turn this on if you want custom peds
 Config.EnableSocietyOwnedVehicles = false
 Config.EnableLicenses             = true -- enable if you're using esx_license
