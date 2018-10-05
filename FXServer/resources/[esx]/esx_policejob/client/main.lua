@@ -1979,6 +1979,7 @@ function StartHandcuffTimer()
 	end)
 end
 
+
 function openJailMenu(playerid)
   local elements = {
     {label = "Cell 1",     value = 'JailPoliceStation1'},
@@ -2025,6 +2026,13 @@ function openJailMenu(playerid)
   )
 end
 
+function UnblockMenuInput()
+    Citizen.CreateThread( function()
+        Citizen.Wait( 150 )
+        blockinput = false 
+    end )
+end
+
 -- TODO
 --   - return to garage if owned
 --   - message owner that his vehicle has been impounded
@@ -2034,3 +2042,4 @@ function ImpoundVehicle(vehicle)
 	ESX.ShowNotification(_U('impound_successful'))
 	CurrentTask.Busy = false
 end
+
