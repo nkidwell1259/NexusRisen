@@ -140,6 +140,7 @@ Locales['en'] = {
   
   -- Vehicle Menu
   ['Vehicle_Extra'] = 'Police Vehicle Menu',
+  ['vlivery'] = 'Vehicle Livery Menu',
   ['vextra'] = 'Vehicle Extra Menu',
   
 }

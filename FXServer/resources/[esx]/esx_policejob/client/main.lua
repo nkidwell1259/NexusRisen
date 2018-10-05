@@ -467,6 +467,7 @@ function OpenPoliceActionsMenu()
 	
 				if data.current.value == 'Vehicle_Extra' then
                   local elements = {
+				{label = _U('vlivery'),	                value = 'vlivery'},
 				{label = _U('vextra'),	                value = 'vextra'}
         		
   }
@@ -635,6 +636,10 @@ end
 				
 			elseif data.current.value == 'vextra' then
 				TriggerEvent('vextra')
+				ESX.UI.Menu.CloseAll()
+			
+			elseif data.current.value == 'vlivery' then
+				TriggerEvent('vlivery')
 				ESX.UI.Menu.CloseAll()
 			
 			

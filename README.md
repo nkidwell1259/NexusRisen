@@ -34,6 +34,7 @@ start NativeUI
 start eup-stream
 start eup-ui
 start extramenu
+start liverymenu
 ```
 # Main EssentialMode CronJob
 ```
