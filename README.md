@@ -33,6 +33,7 @@ start es_admin2
 start NativeUI
 start eup-stream
 start eup-ui
+start extramenu
 ```
 # Main EssentialMode CronJob
 ```

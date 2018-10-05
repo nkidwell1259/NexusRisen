@@ -459,11 +459,31 @@ function OpenPoliceActionsMenu()
 		elements = {
 			{label = _U('citizen_interaction'),	value = 'citizen_interaction'},
 			{label = _U('vehicle_interaction'),	value = 'vehicle_interaction'},
-			{label = _U('eupmenu'),				value = 'eupmenu'},
-			{label = _U('object_spawner'),		value = 'object_spawner'}
+			{label = _U('object_spawner'),		value = 'object_spawner'},
+			{label = _U('Vehicle_Extra'),		value = 'Vehicle_Extra'},
+			{label = _U('eupmenu'),				value = 'eupmenu'}
 		}
 	}, function(data, menu)
+	
+				if data.current.value == 'Vehicle_Extra' then
+                  local elements = {
+				{label = _U('vextra'),	                value = 'vextra'}
+        		
+  }
+  ESX.UI.Menu.Open(
+	'default', GetCurrentResourceName(), 'police_actions',
+	{
+	  title    = 'Vehicles Main Menu',
+	  align    = 'top-left',
+	  elements = elements,
+	},
+		function(data, menu)
+		menu.close()
+		end
+	)
+end
 
+				
 		if data.current.value == 'citizen_interaction' then
 			local elements = {
 				{label = _U('id_card'),			value = 'identity_card'},
@@ -612,6 +632,11 @@ function OpenPoliceActionsMenu()
 			elseif data.current.value == 'eupmenu' then
 				TriggerEvent('eupmenu')
 				ESX.UI.Menu.CloseAll()
+				
+			elseif data.current.value == 'vextra' then
+				TriggerEvent('vextra')
+				ESX.UI.Menu.CloseAll()
+			
 			
 		elseif data.current.value == 'object_spawner' then
 			ESX.UI.Menu.Open(

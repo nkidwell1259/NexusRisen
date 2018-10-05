@@ -137,4 +137,9 @@ Locales['en'] = {
   
   -- EUP
   ['eupmenu'] = 'EUP Menu',
+  
+  -- Vehicle Menu
+  ['Vehicle_Extra'] = 'Police Vehicle Menu',
+  ['vextra'] = 'Vehicle Extra Menu',
+  
 }
