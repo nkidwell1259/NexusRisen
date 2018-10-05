@@ -1,5 +1,12 @@
 vcf_files = {
-	"FBI2.xml"
+	"FBI2.xml",
+	"AMBULANCE.xml",
+	"FIRETRUK.xml",
+	"PBUS.xml",
+	"POLICE.xml",
+	"POLICET.xml",
+	"PRANGER.xml",
+	"SHERIFF2.xml"
 }
 
 pattern_files = {
@@ -16,7 +23,7 @@ pattern_files = {
 }
 
 modelsWithTrafficAdvisor = {
-	"FBI2"
+
 }
 
 modelsWithFireSiren =
