@@ -5,10 +5,10 @@ Config.SpeedMultiplier = 3.6
 Config.Locale          = 'en'
 
 Config.Prices = {
-	dmv         = 500,
-	drive       = 2500,
-	drive_bike  = 3000,
-	drive_truck = 5000
+	dmv         = 50,
+	drive       = 30,
+	drive_bike  = 30,
+	drive_truck = 75
 }
 
 Config.VehicleModels = {
@@ -18,8 +18,8 @@ Config.VehicleModels = {
 }
 
 Config.SpeedLimits = {
-	residence = 50,
-	town      = 80,
+	residence = 30,
+	town      = 40,
 	freeway   = 120
 }
 
