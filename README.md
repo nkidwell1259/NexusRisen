@@ -104,6 +104,7 @@ start esx_cruisecontrol
 start esx_robbery
 start esx_custom_tattoos
 start esx_tattoos
+start esx_barbershop
 ```
 # EssentialMode Jobs
 ```
@@ -131,13 +132,10 @@ start route13_barriers
 
 # Vehicle Resources
 ```
-start lspd
+start sahp
+start sahp_1
 start police_heli
 start gruppe
-start fire
-start fire_heli
-start fire_plane
-start ems
 start civ_veh
 ```
 # Resources

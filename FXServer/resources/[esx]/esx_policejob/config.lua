@@ -95,14 +95,50 @@ Config.PoliceStations = {
 Config.AuthorizedVehicles = {
 	Shared = {
 		{
-			model = 'police',
-			label = 'Police Cruiser'
+			model = 'hwaycar',
+			label = 'Highway State Police'
 		},
 		{
-			model = 'pbus',
-			label = 'Police Prison Bus'
+			model = 'hwaycar2',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar3',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar4',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar5',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar6',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar6',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar7',
+			label = 'Highway State Police'	
+		},
+		{
+			model = 'hwaycar8',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar9',
+			label = 'Highway State Police'
+		},
+		{
+			model = 'hwaycar10',
+			label = 'Highway State Police'
 		}
-	},
+	},	
 
 	recruit = {
 
@@ -110,19 +146,23 @@ Config.AuthorizedVehicles = {
 
 	officer = {
 		{
-			model = 'police3',
-			label = 'Police Interceptor'
+			model = 'state_crownvic',
+			label = 'State Crown Victoria'
 		}
 	},
 
 	sergeant = {
 		{
-			model = 'policet',
-			label = 'Police Transporter'
+			model = 'state_crownvic',
+			label = 'State Crown Victoria'
 		},
 		{
-			model = 'policeb',
-			label = 'Police Bike'
+			model = 'state_bike',
+			label = 'State BMW Bike'
+		},
+		{
+			model = 'state_charger',
+			label = 'State Dodge Charger'
 		}
 	},
 
@@ -132,21 +172,48 @@ Config.AuthorizedVehicles = {
 
 	lieutenant = {
 		{
-			model = 'riot',
-			label = 'Police Riot'
+			model = 'state_crownvic',
+			label = 'State Crown Victoria'
 		},
 		{
-			model = 'fbi2',
-			label = 'FIB SUV'
+			model = 'state_bike',
+			label = 'State BMW Bike'
+		},
+		{
+			model = 'state_charger',
+			label = 'State Dodge Charger'
 		}
 	},
 
 	chef = {
+		{
+			model = 'state_crownvic',
+			label = 'State Crown Victoria'
+		},
+		{
+			model = 'state_bike',
+			label = 'State BMW Bike'
+		},
+		{
+			model = 'state_charger',
+			label = 'State Dodge Charger'
+		}
 
 	},
 
 	boss = {
-
+		{
+			model = 'state_crownvic',
+			label = 'State Crown Victoria'
+		},
+		{
+			model = 'state_bike',
+			label = 'State BMW Bike'
+		},
+		{
+			model = 'state_charger',
+			label = 'State Dodge Charger'
+		}
 	}
 }
 
